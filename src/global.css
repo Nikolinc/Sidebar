@@ -1,0 +1,40 @@
+:root{
+  /* Color */
+  --color-black:#2B2B2B;
+  --color-coral:#F2766A;
+  --color-silver-sand:#C4C4C4;
+  --color-arsenic:#414141;
+  --color-anti-flash:#F3F3F3;
+  --color-old-silver:#858585;
+  --color-white:#fff;
+
+  --color-bg-primery:var(--color-white);
+  --color-bg-secondary:var(--color-silver-sand);
+  --color-text-primery:var(--color-black);
+  --color-text-secondary:var(--color-silver-sand);
+  --color-active:var(--color-coral);
+
+  /* Size */
+
+  --radius-smail:1px;
+
+  --text-base:16px;
+  --text-sm:14px;
+  --text-xs:12px;
+  
+  /* Font width */
+
+    --bold:700;
+    --semibold:600;
+    --medium:500;
+
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+
+  font-family: Gilroy;
+  color: var( --color-text-primery);
+}
