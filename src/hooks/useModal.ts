@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useEvent } from "./useEvent";
-import { IUseModal } from "types/modal";
+import { IUseModal } from "../types/modal";
 
 function useModal({
   elementRef,
