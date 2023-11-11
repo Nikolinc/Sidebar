@@ -1,0 +1,70 @@
+details{
+  padding: 0.25rem 0;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+details>summary {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+summary::after {
+ position: absolute;
+ right: 10px; 
+ background-color: var(--color-text-secondary);
+ mask:url(../../assets/icons/arrow.svg) no-repeat center;
+ -webkit-mask:url(../../assets/icons/arrow.svg) no-repeat center;
+ transition: 1s ;
+ width: 2em;
+ height:2em;
+ content: "";
+}
+
+.filter[open] .details-summary:after, .filter-content[open] .content-summary:after{ 
+  transform: rotate(-180deg);
+  transition: 1s ;
+}
+
+
+/* Плавное появление контента */
+.filter[open] .content, .filter-content[open] .content {
+  max-height: 1000px; /* Выберите подходящую высоту */
+  transition: max-height 2s ease-in-out; /* Измените время и тип анимации при необходимости */
+}
+
+.content {
+  padding: 1rem 0;
+  margin: 0 2px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 2s ease-in-out; /* Измените время и тип анимации при необходимости */
+}
+
+summary > h2{
+  font-size: var(--text-base);
+  font-weight: var(--bold);
+}
+
+summary> h3{
+  font-size: var(--text-sm);
+  font-weight: var(--semibold);
+}
+
+.content{
+  padding: 1rem 0;
+  margin-left: 2px;
+}
+
+summary > div{
+  width: 100%;
+}
+
+.between{
+  display: flex;
+  justify-content: space-between;
+}
+
