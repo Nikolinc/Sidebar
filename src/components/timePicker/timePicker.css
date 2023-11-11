@@ -1,0 +1,58 @@
+
+.time-picer{
+  width: 8rem ;
+}
+
+.time-picer::after{
+  background-color: var(--color-text-secondary);
+  mask:url(../../assets/icons/arrow.svg) no-repeat center;
+  -webkit-mask:url(../../assets/icons/arrow.svg) no-repeat center;
+  transition: 1s ;
+  width: 12px;
+  height:10px;
+  content: "";
+}
+
+.active::after{
+  background-color: var(--color-active);
+  transform: rotate(-180deg);
+  transition: 1s ;
+}
+
+.timepicer-area{
+  position: absolute;
+ 
+  z-index: 1000;
+
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);  
+  place-content: center;
+  margin-top: 3.7rem;
+  gap:0.2rem;
+  width: 5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-medium);
+  background-color: var(--color-bg-primery);
+  box-shadow: var(--drop-shadow);
+}
+
+.timepicer-area >*{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timepicer-area >*>*{
+  
+  height: 30%;
+  width: 60%;
+  text-align: center;
+  background: none;
+  border: none;
+
+  color: var(--color-text-primery);
+  font-size: large;
+  font-weight: 800;
+}
+
