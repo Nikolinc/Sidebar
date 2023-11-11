@@ -1,0 +1,59 @@
+aside{
+
+  position: relative;
+
+  top: 0;
+  left: 0;
+
+  width: 17.5rem;
+  height: 100vh;
+  padding: 1rem;
+}
+
+aside > *{
+  width: 100%;
+}
+
+h1{
+  padding: 10px 0;
+  font-weight: var(--bold);
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.border-bottom{
+border-bottom:1px solid var(--color-border-primery);
+}
+
+section, section > div{
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+}
+
+section > button{
+  width: 100%;
+  padding:0.5rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color:var(--color-text-secondary);
+  background: none;
+
+  font-size: var(--text-xs);
+  font-weight: var(--smail);
+  
+  box-sizing: border-box;
+  border: 1px solid var( --color-border-secondary);
+  border-radius: var(--radius-smail);
+}
+
+#day{
+  padding: 0;
+  flex-direction: row;
+  justify-content: space-between;
+}
