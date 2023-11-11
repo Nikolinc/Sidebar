@@ -7,16 +7,26 @@
   --color-anti-flash:#F3F3F3;
   --color-old-silver:#858585;
   --color-white:#fff;
+  --color-platinum:#E3E3E3;
 
   --color-bg-primery:var(--color-white);
   --color-bg-secondary:var(--color-silver-sand);
+
   --color-text-primery:var(--color-black);
   --color-text-secondary:var(--color-silver-sand);
+  --color-text-tertiary:var(--color-arsenic);
+  --color-text-quaternary:var(--color-white);
+
+  --color-svg:var(--color-old-silver);
   --color-active:var(--color-coral);
+
+  --color-border-primery:var(--color-platinum);
+  --color-border-secondary:var(--color-silver-sand);
 
   /* Size */
 
-  --radius-smail:1px;
+  --radius-smail:3px;
+  --radius-medium:5px;
 
   --text-base:16px;
   --text-sm:14px;
@@ -27,7 +37,10 @@
     --bold:700;
     --semibold:600;
     --medium:500;
+    --smail:400;
 
+    /* box-shadow */
+    --drop-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.20);
 }
 
 
@@ -36,5 +49,66 @@
   padding: 0;
 
   font-family: Gilroy;
-  color: var( --color-text-primery);
+  color: var( --color-text-tertiary);
+}
+
+body{
+  background-color: var(--color-bg-primery);
+}
+
+.root-page{
+  display: flex;
+}
+
+button{
+  background: none;
+  border: none;
+}
+
+p{
+  font-size: var(--text-sm);
+  font-weight:var(--medium) ;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+details,
+details summary {
+padding-left:0;
+background-image:none;
+-webkit-appearance:none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-bg-primery);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-text-secondary);
+  border-radius: 14px;
+  border: 3px solid var(--color-bg-primery);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-secondary);
 }
