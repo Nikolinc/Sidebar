@@ -1,0 +1,131 @@
+
+
+.calindar-icon{
+  background-color: var(--color-svg);
+  width: 18px;
+  height: 18px;
+  mask: url('../../assets/icons/calendar.svg');
+  -webkit-mask:url('../../assets/icons/calendar.svg');
+}
+
+button.active{
+  border: 1px solid var(--color-active);
+  color: var(--color-text-tertiary);
+}
+
+.active > .calindar-icon{
+  background-color: var(--color-active);
+} 
+
+
+.calendar-area{
+  position: absolute;
+  margin-top: 4rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 13.5rem;
+  width: 14.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-medium);
+  background-color: var(--color-bg-primery);
+  box-shadow: var(--drop-shadow);
+}
+.calendar{
+  height: 100%;
+  width: 100%;
+}
+
+.year, .prev{
+  color:var(--color-active) ;
+}
+
+.months{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.months-select{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.months-select > button, .months-select > h2 {
+  display: flex;
+  gap: 0.5rem;
+
+  font-size: var(--text-sm);
+  font-weight: var(--medium);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.months-select > button:hover, .months-select > h2:hover  {
+	transform: scale(1.05);
+}
+
+
+.week{
+  display: grid;
+  grid-template-columns: repeat(7, 33px);
+}
+
+.week >h2{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+  font-size: small;
+  text-align: center;
+  height: 2.5rem;
+}
+
+.months-grid{
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.day{
+  display: grid;
+  place-content: center;
+  font-size: small;
+  text-align: center;
+  padding: 0.3rem; 
+  height: 60%;
+  width: 60%;
+}
+.day>button{
+  display: grid;
+  place-content: center;
+
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100% ;
+
+  cursor: pointer;
+  user-select: none;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.day>button:hover, .selectDate{
+  background-color: var(--color-active);
+  color:var( --color-text-quaternary);
+}
+
+.currentMonth{
+  color:var(--color-text-secondary);
+}
+
+.today{
+  background-color: var(--color-text-tertiary);
+  color:var( --color-text-quaternary);
+}
