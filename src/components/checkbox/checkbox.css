@@ -1,0 +1,50 @@
+.checkbox {
+  height: 6rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap:12px ;
+}
+
+.checkbox div {
+  display: flex;
+  align-items: center;
+}
+
+ input[type="checkbox"]{
+
+  position: relative;
+
+  height: 20px;
+  width: 20px;
+
+  transition: all 0.15s ease-out 0s;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-medium);
+  margin-right: 15px;
+  padding: 0.5em;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+
+}
+ input[type="checkbox"]:hover{
+  background: var(--color-active);
+}
+ input[type="checkbox"]:checked {
+  background-color: var(--color-active);
+  background-image: url('../../assets/icons/checkbox.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
