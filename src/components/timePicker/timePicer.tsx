@@ -4,11 +4,18 @@ import dayjs from 'dayjs';
 import generateTime from '../../util/generateTime';
 import useModal from '../../hooks/useModal';
 import { ITooltipProps } from '../../types/tooltipProps';
-import { useSearchParams } from 'react-router-dom';
 
 interface ICalendarModal extends ITooltipProps {
   date: Date,
   type: string
+}
+
+function lengthСheck(item: string | number) {
+
+  const sItem: string = String(item)
+
+  if (sItem.length === 1) return (`0${sItem}`)
+  return (`${sItem}`)
 }
 
 function TimePicker(props: { date: Date, type: string }) {
@@ -21,31 +28,24 @@ function TimePicker(props: { date: Date, type: string }) {
 
   return (<>
     <button className={`time-picer ${opened ? 'active' : ''}`} onClick={() => setOpened(true)} ref={buttonRef}>
-      {props.date.toLocaleTimeString()}
+      {lengthСheck(props.date.getHours())}:{lengthСheck(props.date.getMinutes())}
     </button>
     <Modal opened={opened} triggerRef={buttonRef} onClose={onClose} date={props.date} type={props.type} />
   </>)
 }
 
 
-
 function Modal(props: ICalendarModal) {
   const currentDate = dayjs(props.date);
-  const { hoursList, minuteList } = generateTime()
-  const [hour, setHour] = useState(currentDate.hour());
-  const [minute, setMinute] = useState(currentDate.minute());
+  const { hoursList, minuteList } = generateTime();
+  const [hour, setHour] = useState(String(currentDate.hour()));
+  const [minute, setMinute] = useState(String(currentDate.minute()));
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const [, setSearchParams] = useSearchParams();
 
   const onClose = () => {
     const date: Date = props.date;
-    date.setHours(hour);
-    date.setMinutes(minute);
-
-    setSearchParams((prev) => {
-      prev.set(props.type, String(date.toJSON()));
-      return prev;
-    });
+    date.setHours(Number(hour));
+    date.setMinutes(Number(minute));
     props.onClose();
   }
 
@@ -60,30 +60,30 @@ function Modal(props: ICalendarModal) {
     return null;
   }
 
-  function setTextInput(e: React.ChangeEvent<HTMLInputElement>, arr: number[], push: (num: number) => void) {
+  function setTextInput(e: React.ChangeEvent<HTMLInputElement>, arr: string[], push: (num: string) => void) {
     const limit: number = 2;
     const number = Number(e.target.value.slice(0, limit));
     if (number < arr.length - 1 && number > 0) {
-      push(number);
+      push(lengthСheck(String(number)));
     }
   }
 
-  const pref = (item: number, arr: number[], push: (num: number) => void) => {
+  const pref = (item: string, arr: string[], push: (num: string) => void) => {
     const index = arr.indexOf(item);
     if (index <= 0) {
-      push(arr[arr.length - 1]);
+      push(lengthСheck(arr[arr.length - 1]));
       return
     }
-    push(arr[index - 1]);
+    push(lengthСheck(arr[index - 1]));
   }
 
-  const next = (item: number, arr: number[], push: (num: number) => void) => {
+  const next = (item: string, arr: string[], push: (num: string) => void) => {
     const index = arr.indexOf(item);
     if (index >= arr.length - 1) {
-      push(arr[0]);
+      push(lengthСheck(arr[0]));
       return
     }
-    push(arr[index + 1]);
+    push(lengthСheck(arr[index + 1]));
   }
 
   return (
@@ -95,7 +95,7 @@ function Modal(props: ICalendarModal) {
           onChange={(e) => setTextInput(e, hoursList, setHour)}
           value={hour}
           style={{
-            color: `${hour === currentDate.hour() ? "var(--secondary)" : "var(--text)"}`
+            color: `${Number(hour) === currentDate.hour() ? "var(--color-active)" : "var(--text)"}`
           }} />
         <button onClick={() => pref(hour, hoursList, setHour)}>&#9660;</button>
       </div>
@@ -105,7 +105,7 @@ function Modal(props: ICalendarModal) {
           onChange={(e) => setTextInput(e, minuteList, setMinute)}
           value={minute}
           style={{
-            color: `${minute === currentDate.minute() ? "var(--secondary)" : "var(--text)"}`
+            color: `${Number(minute) === currentDate.minute() ? "var(--color-active)" : "var(--text)"}`
           }} />
         <button onClick={() => pref(minute, minuteList, setMinute)}>&#9660;</button>
       </div>

@@ -4,7 +4,7 @@
 }
 
 .time-picer::after{
-  background-color: var(--color-text-secondary);
+  background-color: var(--color-svg);
   mask:url(../../assets/icons/arrow.svg) no-repeat center;
   -webkit-mask:url(../../assets/icons/arrow.svg) no-repeat center;
   transition: 1s ;
@@ -14,7 +14,6 @@
 }
 
 .active::after{
-  background-color: var(--color-active);
   transform: rotate(-180deg);
   transition: 1s ;
 }
@@ -51,7 +50,7 @@
   background: none;
   border: none;
 
-  color: var(--color-text-primery);
+  color: var(--color-text-tertiary);
   font-size: large;
   font-weight: 800;
 }

@@ -1,6 +1,6 @@
 export default function generateTime() {
-  const hoursList: number[] = Initialization(24);
-  const minuteList: number[] = Initialization(60);
+  const hoursList: string[] = Initialization(24);
+  const minuteList: string[] = Initialization(60);
 
   return { hoursList, minuteList };
 }
@@ -8,7 +8,11 @@ export default function generateTime() {
 function Initialization(length: number) {
   const arr = [];
   for (let i = 0; i < length; i++) {
-    arr.push(i);
+    if (i < 10) {
+      arr.push(`0${i}`);
+    } else {
+      arr.push(`${i}`);
+    }
   }
   return arr;
 }
