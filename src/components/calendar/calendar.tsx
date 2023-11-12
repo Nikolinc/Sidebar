@@ -41,7 +41,7 @@ function Calendar(props: { date: Date }) {
 
 function Modal(props: ICalendarModal) {
 
-  const days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+  const days = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
   const currentDate = dayjs(props.date);
   const [today, setToday] = useState(currentDate);
   const [selectDate, setSelectDate] = useState(currentDate);
@@ -97,10 +97,10 @@ function Modal(props: ICalendarModal) {
         <div className="week">
           {days.map((day, index) => {
             return (
-              <h2
+              <h4
                 key={index}>
                 {day}
-              </h2>
+              </h4>
             );
           })}
         </div>

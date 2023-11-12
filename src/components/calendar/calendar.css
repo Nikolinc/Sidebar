@@ -26,9 +26,9 @@ button.active{
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: 13.5rem;
-  width: 14.5rem;
-  padding: 1.5rem;
+  height: 12rem;
+  width: 16rem;
+  padding: 1.25rem 0.7rem; 
   border-radius: var(--radius-medium);
   background-color: var(--color-bg-primery);
   box-shadow: var(--drop-shadow);
@@ -55,18 +55,30 @@ button.active{
   justify-content: space-between;
   gap: 10px;
   align-items: center;
+  padding-top: 10px;
+  padding: 0 0.8rem;
 }
 
 .months-select > button, .months-select > h2 {
   display: flex;
   gap: 0.5rem;
 
-  font-size: var(--text-sm);
-  font-weight: var(--medium);
+  color: var(--color-text-primery);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126.9%;
+  letter-spacing: 0.42px;
+
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+
+.months-select .prev {
+  color: var(--color-active);
+}
+
 .months-select > button:hover, .months-select > h2:hover  {
 	transform: scale(1.05);
 }
@@ -74,17 +86,21 @@ button.active{
 
 .week{
   display: grid;
-  grid-template-columns: repeat(7, 33px);
+  grid-template-columns: repeat(7, auto);
+  padding:20px 0 ;
 }
 
-.week >h2{
+.week >h4{
  display: flex;
  justify-content: center;
  align-items: center;
 
-  font-size: small;
-  text-align: center;
-  height: 2.5rem;
+ font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126.9%; /* 12.69px */
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .months-grid{
@@ -95,9 +111,13 @@ button.active{
 .day{
   display: grid;
   place-content: center;
-  font-size: small;
   text-align: center;
-  padding: 0.3rem; 
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126.9%; /* 15.228px */
+  letter-spacing: 0.36px;
+  padding:0.25rem 0.5rem; 
   height: 60%;
   width: 60%;
 }
