@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './districts.css'
 import useModal from '../../hooks/useModal';
 import { ITooltipProps } from '../../types/tooltipProps';
@@ -34,7 +34,7 @@ function Districts() {
 
   return (<>
     <button className={`button-districts ${opened ? 'active' : ''}`} onClick={() => setOpened(true)} ref={buttonRef}>
-      <input type="districts" placeholder='любой' onChange={(e) => handleDistrict(e.target.value)} value={search} />
+      <input type="districts" placeholder='Любой' onChange={(e) => handleDistrict(e.target.value)} value={search} />
     </button>
     <Modal opened={opened} triggerRef={buttonRef} onClose={onClose} />
   </>
@@ -46,25 +46,6 @@ function Modal(props: ITooltipProps) {
   const tooltipRef = useRef<HTMLDivElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const districtsSearch = searchParams.get("districts") || "";
-
-
-  const districts = useMemo(() => {
-
-    const districtsList = distrectList.map((item) => {
-      return {
-        id: Math.random().toString(36).slice(2),
-        text: item
-      }
-    });
-
-    function Search(district: any) {
-      return district.text.toUpperCase().indexOf(districtsSearch.toUpperCase()) !== -1;
-    }
-
-
-    return districtsSearch ? districtsList.filter(Search) : districtsList;
-
-  }, [districtsSearch])
 
 
   useModal({
@@ -95,10 +76,10 @@ function Modal(props: ITooltipProps) {
       onClick={onHandleChange}
     >
       <div>
-        {districts.map((virtualItem) => {
+        {distrectList.map((district: string, index) => {
           return (
-            <div className='districts-item' key={virtualItem.id}>
-              {virtualItem.text}
+            <div className={`districts-item ${district === districtsSearch ? 'active-district' : ''}`} key={index}>
+              {district}
             </div>
           );
         })}

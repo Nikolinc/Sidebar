@@ -18,8 +18,13 @@ h1{
   padding: 10px 0;
   font-weight: var(--bold);
   font-size: var(--text-base);
-  text-transform: uppercase;
   text-align: start;
+  letter-spacing: 0.48px;
+  color:var(--color-text-primery) ;
+}
+
+aside  h1{
+  margin-bottom: 1.56rem;
 }
 
 .border-bottom{

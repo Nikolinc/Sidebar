@@ -1,11 +1,15 @@
 .button-districts::after{
-  background-color: var(--color-text-secondary);
+  background-color: var(--color-svg);
   mask:url(../../assets/icons/arrow.svg) no-repeat center;
   -webkit-mask:url(../../assets/icons/arrow.svg) no-repeat center;
   transition: 1s ;
   width: 12px;
   height:10px;
   content: "";
+}
+
+input[type="districts"]::placeholder{
+  color: var(--color-text-secondary);
 }
 
 input[type="districts"]{
@@ -19,12 +23,12 @@ input[type="districts"]{
   display: flex;
   flex-direction: column;
   gap:0.2rem;
-  width: 14.5rem;
+  width: 16.5rem;
   min-height: 1%;
-  max-height: 30%;
+  max-height: 60%;
   margin-top: 3.7rem;
   overflow: auto;
-  padding: 1.5rem;
+  padding: 0 0.5rem;
   border-radius: var(--radius-medium);
   background-color: var(--color-bg-primery);
   box-shadow: var(--drop-shadow);  
@@ -39,10 +43,20 @@ input[type="districts"]{
   font-size: var(--text-sm);
 }
 
-.districts-item:hover{
+.districts-item:hover,.active-district{
   color: var(--color-active);
   border-bottom:1px solid var(--color-active);  
   font-size: var(--text-sm);
 }
 
-
+.active-district::after{
+  position: absolute;
+  background-color: var(--color-active);
+  mask:url(../../assets/icons/check.svg) no-repeat center;
+  -webkit-mask:url(../../assets/icons/check.svg) no-repeat center;
+  transition: 1s ;
+  left: 90%;
+  width: 12px;
+  height:10px;
+  content: "324";
+}
