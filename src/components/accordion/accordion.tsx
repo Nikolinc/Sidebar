@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RoomFilter } from '../../types/roomFilter';
 import CategoriesJSON from '../../data/categories.json';
-import './categories.css';
 import React from 'react';
-import SelectType from '../filterComponent/filterComponent';
+import Radiobox from '../radiobox/radiobox';
+import InputRange from '../range/range';
+import Checkbox from '../checkbox/checkbox';
+import './accordion.css';
 
-function Categories() {
+function Acardeon() {
   const roomFilters: RoomFilter[] = CategoriesJSON as RoomFilter[]
 
   return (
     <section className="categories-list">
       {roomFilters?.map((filter: RoomFilter, index) => {
-
         return (
           <React.Fragment key={index}>
             <RecursiveFilterComponent filters={filter.sidebar_filters} />
@@ -38,7 +39,7 @@ const RecursiveFilterComponent = ({ filters }: any) => {
               </details>
             ) : (
               <details className={`filter-content`}>
-                <summary className={"content-summary"}> <h3>{key}</h3></summary>
+                <summary className={"content-summary"}> <p>{key}</p></summary>
                 <div className="content">
                   <SelectType filters={value} />
                 </div>
@@ -54,5 +55,19 @@ const RecursiveFilterComponent = ({ filters }: any) => {
 };
 
 
+function SelectType({ filters }: any) {
+  switch (filters.type) {
+    case "one_select":
+      return <Radiobox filters={filters} />;
+    case "range":
+      return <InputRange filters={filters} />;
+    case "multi_select":
+      return <Checkbox filters={filters} />;
+    default:
+      (<></>);
+  }
+  return <></>;
+}
 
-export default Categories
+
+export default Acardeon

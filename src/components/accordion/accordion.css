@@ -15,7 +15,7 @@ details>summary {
 summary::after {
  position: absolute;
  right: 10px; 
- background-color: var(--color-text-secondary);
+ background-color: var(--color-svg);
  mask:url(../../assets/icons/arrow.svg) no-repeat center;
  -webkit-mask:url(../../assets/icons/arrow.svg) no-repeat center;
  transition: 1s ;
@@ -45,13 +45,17 @@ summary::after {
 }
 
 summary > h2{
+  color: var(--color-text-primery);
   font-size: var(--text-base);
   font-weight: var(--bold);
+  letter-spacing: 0.48px;
 }
 
-summary> h3{
-  font-size: var(--text-sm);
+.content-summary  p{
+  color: var(--color-text-tertiary);
+  padding: 7.5px 0;
   font-weight: var(--semibold);
+  letter-spacing: 0.42px;  
 }
 
 .content{
@@ -63,8 +67,5 @@ summary > div{
   width: 100%;
 }
 
-.between{
-  display: flex;
-  justify-content: space-between;
-}
+
 
